@@ -5,10 +5,14 @@ ROOT_DIR:=$(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 # Python Code Style
 reformat:
 	$(PYTHON) -m black $(ROOT_DIR)
+	$(PYTHON) -m isort $(ROOT_DIR) --profile black
+	# above uses Black-config isort settings.
 stylecheck:
 	$(PYTHON) -m black --check $(ROOT_DIR)
+	$(PYTHON) -m isort --check $(ROOT_DIR)
 stylediff:
 	$(PYTHON) -m black --check --diff $(ROOT_DIR)
+	$(PYTHON) -m isort --check --diff $(ROOT_DIR)
 
 # Translations
 gettext:

@@ -18,6 +18,24 @@
     )/
     '''
 
+[tool.isort]
+profile = "black"
+line_length = 99
+combine_as_imports = true
+skip = [
+    ".eggs",
+    ".git",
+    ".hg",
+    ".mypy_cache",
+    ".tox",
+    ".venv",
+    "_build",
+    "buck-out",
+    "build",
+    "dist",
+    "redbot/vendored",
+]
+
 [tool.pytest.ini_options]
     minversion = "6.0"
     addopts = "--import-mode=importlib"

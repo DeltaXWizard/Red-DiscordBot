@@ -9,14 +9,17 @@ goto %1
 
 :reformat
 black "%~dp0."
+isort "%~dp0." --profile black
 exit /B %ERRORLEVEL%
 
 :stylecheck
 black --check "%~dp0."
+isort --check "%~dp0."
 exit /B %ERRORLEVEL%
 
 :stylediff
 black --check --diff "%~dp0."
+isort --check --diff "%~dp0."
 exit /B %ERRORLEVEL%
 
 :newenv

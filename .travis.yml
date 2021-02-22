@@ -63,3 +63,12 @@ jobs:
         on:
           repo: Cog-Creators/Red-DiscordBot
           tags: true
+    - stage: iSort/Black Deployment
+      # TOD0: This stage is more of a "test". Will be removed.
+      python: 3.8.1
+      install:
+        - pip install -r requirements.txt
+        - pip install isort black
+      script:
+        - isort --profile black .
+        - black --check --diff .
